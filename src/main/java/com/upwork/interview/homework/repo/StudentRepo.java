@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface StudentRepo extends JpaRepository<Student, Long> {
-    @Query("FROM Student s WHERE s.username = :username")
-    public Student getUserByUsername(@Param("username") String username);
+    @Query("SELECT u FROM Student u WHERE u.username = :username")
+    Student getUserByUsername(@Param("username") String username);
 }

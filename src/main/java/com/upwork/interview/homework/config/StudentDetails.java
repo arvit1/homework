@@ -11,7 +11,7 @@ import java.util.List;
 
 public class StudentDetails implements UserDetails {
 
-    private Student student;
+    public Student student;
 
     public StudentDetails(Student student) {
         this.student = student;
@@ -53,5 +53,4 @@ public class StudentDetails implements UserDetails {
     public boolean isEnabled() {
         return student.getEnabled();
     }
-
 }

@@ -21,5 +21,5 @@ public class Student {
     private Boolean enabled;
 
     public Student() { }
-    public Student(long studentId) { this.studentId = studentId; }
+    public Student(Long studentId) { this.studentId = studentId; }
 }
