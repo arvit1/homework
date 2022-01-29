@@ -1,5 +1,6 @@
 package com.upwork.interview.homework.config;
 
+import com.upwork.interview.homework.model.Activity;
 import com.upwork.interview.homework.model.Classroom;
 import com.upwork.interview.homework.model.Student;
 import com.upwork.interview.homework.repo.ClassroomRepo;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,12 +28,23 @@ public class DatabasePopulatorConfig {
                     .fullName("John Watson").username("john").password("$2a$10$E2UPv7arXmp3q0LzVzCBNeb4B4AtbTAGjkefVDnSztOwE7Gix6kea").enabled(true).build();
             Classroom classroom = Classroom.builder()
                     .classQr(UUID.randomUUID().toString()).build();
-            classroom.attend(student1);
-            classroom.attend(student2);
+            Activity activity1 = Activity.builder().name("Math").start(LocalDateTime.parse("2015-08-04T10:00:00"))
+                    .end(LocalDateTime.parse("2015-08-04T10:50:00")).build();
+            Activity activity2 = Activity.builder().name("Physics").start(LocalDateTime.parse("2015-08-04T11:00:00"))
+                    .end(LocalDateTime.parse("2015-08-04T11:50:00")).build();
+            Activity activity3 = Activity.builder().name("Chemistry").start(LocalDateTime.parse("2015-08-04T12:00:00"))
+                    .end(LocalDateTime.parse("2015-08-04T12:50:00")).build();
+            activity1.attend(student1);
+            activity1.attend(student2);
+            activity3.attend(student1);
+            activity2.attend(student2);
+            classroom.addActivity(activity1);
+            classroom.addActivity(activity3);
             Classroom classroom2 = Classroom.builder()
                     .classQr(UUID.randomUUID().toString()).build();
-            classroom2.attend(student1);
-            classroom2.attend(student2);
+            classroom2.addActivity(activity2);
+            classroom2.addActivity(activity3);
+
             classrooms.add(classroom);
             classrooms.add(classroom2);
             classroomRepo.saveAll(classrooms);

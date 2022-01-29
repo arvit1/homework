@@ -17,17 +17,17 @@ public class Classroom {
     @Column(unique=true)
     private String classQr;
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "student_classroom", joinColumns = { @JoinColumn(name = "classroom_id") }, inverseJoinColumns = { @JoinColumn(name = "student_id") })
-    private Set<Student> students;
+    @JoinTable(name = "activity_classroom", joinColumns = { @JoinColumn(name = "classroom_id") }, inverseJoinColumns = { @JoinColumn(name = "activity_id") })
+    private Set<Activity> activities;
 
     public Classroom() { }
-    public Classroom(long classRoomId) { this.classRoomId = classRoomId; }
+    public Classroom(Long classRoomId) { this.classRoomId = classRoomId; }
 
-    public void attend(Student student){
-        if (this.students == null)
-            this.students = new HashSet<>(0);
+    public void addActivity(Activity activity){
+        if (this.activities == null)
+            this.activities = new HashSet<>(0);
 
-        this.students.add(student);
+        this.activities.add(activity);
 
     }
 }
