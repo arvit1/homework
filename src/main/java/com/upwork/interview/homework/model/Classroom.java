@@ -28,5 +28,6 @@ public class Classroom {
             this.students = new HashSet<>(0);
 
         this.students.add(student);
+
     }
 }
