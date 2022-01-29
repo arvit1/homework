@@ -21,9 +21,9 @@ public class DatabasePopulatorConfig {
         List<Classroom> classrooms = classroomRepo.findAll();
         if (classrooms.isEmpty()){
             Student student1 = Student.builder()
-                    .studentName("Sherlock Holmes").build();
+                    .fullName("Patrick Pwayze").username("patrick").password("$2a$10$cTUErxQqYVyU2qmQGIktpup5chLEdhD2zpzNEyYqmxrHHJbSNDOG.").enabled(true).build();
             Student student2 = Student.builder()
-                    .studentName("John Watson").build();
+                    .fullName("John Watson").username("john").password("$2a$10$E2UPv7arXmp3q0LzVzCBNeb4B4AtbTAGjkefVDnSztOwE7Gix6kea").enabled(true).build();
             Classroom classroom = Classroom.builder()
                     .classQr(UUID.randomUUID().toString()).build();
             classroom.attend(student1);

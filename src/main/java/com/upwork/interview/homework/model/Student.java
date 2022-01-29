@@ -15,7 +15,10 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long studentId;
-    private String studentName;
+    private String fullName;
+    private String username;
+    private String password;
+    private Boolean enabled;
 
     public Student() { }
     public Student(long studentId) { this.studentId = studentId; }
