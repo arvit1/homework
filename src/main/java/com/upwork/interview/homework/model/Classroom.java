@@ -1,18 +1,17 @@
 package com.upwork.interview.homework.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-@Data
+@Data @Builder @AllArgsConstructor
 public class Classroom {
     @Id
-    @GeneratedValue
-    private long classRoomId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long classRoomId;
     @Column(unique=true)
     private String classQr;
 

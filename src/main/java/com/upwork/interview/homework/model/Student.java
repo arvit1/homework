@@ -10,8 +10,8 @@ import java.util.Set;
 @Data
 public class Student {
     @Id
-    @GeneratedValue
-    private long studentId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long studentId;
     private String studentName;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "student_course", joinColumns = { @JoinColumn(name = "student_id") }, inverseJoinColumns = { @JoinColumn(name = "course_id") })
