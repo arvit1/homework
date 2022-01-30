@@ -20,7 +20,7 @@ public class Activity {
     @Column(unique=true)
     private LocalDateTime start;
     private LocalDateTime end;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "student_activity", joinColumns = { @JoinColumn(name = "activity_id") }, inverseJoinColumns = { @JoinColumn(name = "student_id") })
     private Set<Student> students;
 

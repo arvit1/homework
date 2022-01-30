@@ -16,7 +16,7 @@ public class Classroom {
     private Long classRoomId;
     @Column(unique=true)
     private String classQr;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "activity_classroom", joinColumns = { @JoinColumn(name = "classroom_id") }, inverseJoinColumns = { @JoinColumn(name = "activity_id") })
     private Set<Activity> activities;
 
