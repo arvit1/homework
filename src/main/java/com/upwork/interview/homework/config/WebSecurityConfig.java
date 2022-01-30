@@ -42,15 +42,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/login").permitAll()
                 .anyRequest().authenticated()
                 .and()
-//                .httpBasic()
-//                .and()
+                .httpBasic()
+                .and()
                 .formLogin().permitAll()
                 .and()
                 .logout().permitAll()
                 .and()
                 .exceptionHandling().accessDeniedPage("/login?error=true")
-//                .and()
-//                .csrf().disable().cors()
+                .and()
+                .csrf().disable().cors()
         ;
     }
 }
