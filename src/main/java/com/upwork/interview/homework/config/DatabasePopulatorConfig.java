@@ -26,8 +26,10 @@ public class DatabasePopulatorConfig {
                     .fullName("Patrick Pwayze").username("patrick").password("$2a$10$cTUErxQqYVyU2qmQGIktpup5chLEdhD2zpzNEyYqmxrHHJbSNDOG.").enabled(true).build();
             Student student2 = Student.builder()
                     .fullName("John Watson").username("john").password("$2a$10$E2UPv7arXmp3q0LzVzCBNeb4B4AtbTAGjkefVDnSztOwE7Gix6kea").enabled(true).build();
+            Student student3 = Student.builder()
+                    .fullName("Admin Me").username("admin").password("$2a$10$IqTJTjn39IU5.7sSCDQxzu3xug6z/LPU6IF0azE/8CkHCwYEnwBX.").enabled(true).build();
             Classroom classroom = Classroom.builder()
-                    .classQr(UUID.randomUUID().toString()).build();
+                    .classQr("56f36af2-b860-442c-a812-74ef03760487").build();
             Activity activity1 = Activity.builder().name("Math").start(LocalDateTime.parse("2022-02-04T10:00:00"))
                     .end(LocalDateTime.parse("2022-02-04T10:50:00")).build();
             Activity activity2 = Activity.builder().name("Physics").start(LocalDateTime.parse("2022-02-04T11:00:00"))
@@ -35,9 +37,8 @@ public class DatabasePopulatorConfig {
             Activity activity3 = Activity.builder().name("Chemistry").start(LocalDateTime.parse("2022-02-04T12:00:00"))
                     .end(LocalDateTime.parse("2022-02-04T12:50:00")).build();
             activity1.attend(student1);
-            activity1.attend(student2);
-            activity3.attend(student1);
             activity2.attend(student2);
+            activity3.attend(student3);
             classroom.addActivity(activity1);
             classroom.addActivity(activity3);
             Classroom classroom2 = Classroom.builder()
