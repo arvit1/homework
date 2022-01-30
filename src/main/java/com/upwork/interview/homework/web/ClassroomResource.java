@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
-import java.util.Set;
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -27,8 +27,8 @@ public class ClassroomResource {
     }
 
     @GetMapping(path = "/activities")
-    public Set<Activity> getActivities(@RequestParam String qr){
-        return this.classroomRepo.findFirstByClassQr(qr).getActivities();
+    public List<Activity> getActivities(@RequestParam String qr){
+        return activityRepo.getActivitiesByQr(qr);
     }
 
     @GetMapping(path = "/checkin")
