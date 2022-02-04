@@ -37,6 +37,7 @@ public class DatabasePopulatorConfig {
             Activity activity3 = Activity.builder().name("Chemistry").start(LocalDateTime.parse("2022-02-04T12:00:00"))
                     .end(LocalDateTime.parse("2022-02-04T12:50:00")).build();
             activity1.attend(student1);
+            activity1.attend(student2);
             activity2.attend(student2);
             activity3.attend(student3);
             classroom.addActivity(activity1);
